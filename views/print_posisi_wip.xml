@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <record id="paperformat_posisi_wip" model="report.paperformat">
+            <field name="name">Letter Po</field>
+            <field name="default" eval="True" />
+            <field name="format">Letter</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">18</field>
+            <field name="margin_bottom">20</field>
+            <field name="margin_left">10</field>
+            <field name="margin_right">10</field>
+            <field name="header_line" eval="False" />
+            <field name="header_spacing">0</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <report 
+            id="vit_report_posisi_wip"
+            string="Posisi WIP"
+            model="hr.contract" 
+            report_type="qweb-pdf"
+            paperformat="vit_report_cukai.paperformat_posisi_wip"
+            file="vit_report_cukai.posisi_wip" 
+            name="vit_report_cukai.posisi_wip" 
+        />
+
+        <template id="external_layout_kontrak">
+          <t t-if="not o" t-set="o" t-value="doc"/>
+
+          <t t-if="not company">
+              <!-- Multicompany -->
+              <t t-if="company_id">
+                  <t t-set="company" t-value="company_id"/>
+              </t>
+              <t t-elif="o and 'company_id' in o">
+                  <t t-set="company" t-value="o.company_id.sudo()"/>
+              </t>
+              <t t-else="else">
+                  <t t-set="company" t-value="res_company"/>
+              </t>
+          </t>
+          <t t-call="vit_report_cukai.external_layout_standard_kontrak"><t t-raw="0"/></t>
+        </template>
+
+        <template id="external_layout_standard_kontrak">
+          <div class="article o_report_layout_standard"  t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
+            <t t-call="web.address_layout"/>
+            <t t-raw="0"/>
+          </div>
+        </template>
+
+
+        <template id="report_organik_document">
+          <t t-call="vit_report_cukai.external_layout_kontrak">
+            <div class="page" style="font-size: 10px;">
+
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th class="text-center">No</th>
+                    <th class="text-center">Kode Barang</th>
+                    <th class="text-center">Nama Barang</th>
+                    <th class="text-center">Sat</th>
+                    <th class="text-center">Jumlah</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>1</th>
+                    <th>Jenis</th>
+                    <td>Nomor</td>
+                    <td>12/12/2019</td>
+                    <td>12</td>
+                  </tr>
+                </tbody>
+              </table>
+
+            </div>
+          </t>
+        </template>
+
+
+        <template id="posisi_wip">
+          <t t-call="web.html_container">
+            <t t-call="vit_report_cukai.report_organik_document"/>
+          </t>
+        </template>
+
+    </data>
+</odoo>
