@@ -19,13 +19,13 @@
         </record>
 
         <report 
-            id="vit_report_posisi_wip"
+            id="syntax_report_posisi_wip"
             string="Posisi WIP"
             model="hr.contract" 
             report_type="qweb-pdf"
-            paperformat="vit_report_cukai.paperformat_posisi_wip"
-            file="vit_report_cukai.posisi_wip" 
-            name="vit_report_cukai.posisi_wip" 
+            paperformat="syntax_report_cukai.paperformat_posisi_wip"
+            file="syntax_report_cukai.posisi_wip" 
+            name="syntax_report_cukai.posisi_wip" 
         />
 
         <template id="external_layout_kontrak">
@@ -43,7 +43,7 @@
                   <t t-set="company" t-value="res_company"/>
               </t>
           </t>
-          <t t-call="vit_report_cukai.external_layout_standard_kontrak"><t t-raw="0"/></t>
+          <t t-call="syntax_report_cukai.external_layout_standard_kontrak"><t t-raw="0"/></t>
         </template>
 
         <template id="external_layout_standard_kontrak">
@@ -54,8 +54,8 @@
         </template>
 
 
-        <template id="report_organik_document">
-          <t t-call="vit_report_cukai.external_layout_kontrak">
+        <template id="report_posisi_wip_document">
+          <t t-call="syntax_report_cukai.external_layout_kontrak">
             <div class="page" style="font-size: 10px;">
 
               <table class="table table-bordered">
@@ -86,7 +86,7 @@
 
         <template id="posisi_wip">
           <t t-call="web.html_container">
-            <t t-call="vit_report_cukai.report_organik_document"/>
+            <t t-call="syntax_report_cukai.report_posisi_wip_document"/>
           </t>
         </template>
 

@@ -19,13 +19,13 @@
         </record>
 
         <report 
-            id="vit_report_tanggungjawab_mutasi_bahan"
+            id="syntax_report_tanggungjawab_mutasi_bahan"
             string="Pertanggunjawaban Mutasi Bahan"
             model="hr.contract" 
             report_type="qweb-pdf"
-            paperformat="vit_report_cukai.paperformat_tanggungjawab_mutasi_bahan"
-            file="vit_report_cukai.tanggungjawab_mutasi_bahan" 
-            name="vit_report_cukai.tanggungjawab_mutasi_bahan" 
+            paperformat="syntax_report_cukai.paperformat_tanggungjawab_mutasi_bahan"
+            file="syntax_report_cukai.tanggungjawab_mutasi_bahan" 
+            name="syntax_report_cukai.tanggungjawab_mutasi_bahan" 
         />
 
         <template id="external_layout_kontrak">
@@ -43,7 +43,7 @@
                   <t t-set="company" t-value="res_company"/>
               </t>
           </t>
-          <t t-call="vit_report_cukai.external_layout_standard_kontrak"><t t-raw="0"/></t>
+          <t t-call="syntax_report_cukai.external_layout_standard_kontrak"><t t-raw="0"/></t>
         </template>
 
         <template id="external_layout_standard_kontrak">
@@ -54,8 +54,8 @@
         </template>
 
 
-        <template id="report_organik_document">
-          <t t-call="vit_report_cukai.external_layout_kontrak">
+        <template id="report_tanggungjawab_mutasi_bahan_document">
+          <t t-call="syntax_report_cukai.external_layout_kontrak">
             <div class="page" style="font-size: 10px;">
 
               <table class="table table-bordered">
@@ -100,7 +100,7 @@
 
         <template id="tanggungjawab_mutasi_bahan">
           <t t-call="web.html_container">
-            <t t-call="vit_report_cukai.report_organik_document"/>
+            <t t-call="syntax_report_cukai.report_tanggungjawab_mutasi_bahan_document"/>
           </t>
         </template>
 
