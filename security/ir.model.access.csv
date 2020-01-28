@@ -1,2 +1,2 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_hr_attend,access_hr_attend,model_hr_attend_xlx,,1,1,1,1
+document_bea_cukai,document_bea_cukai,model_document_cukai,,1,1,1,1

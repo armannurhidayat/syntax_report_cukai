@@ -1,0 +1,30 @@
+<odoo>
+	<data>	
+		
+		<record id="action_document_list" model="ir.actions.act_window">
+            <field name="name">Document Bea Cukai</field>
+            <field name="res_model">document.cukai</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create"> Click to create a Document </p>
+                <p>klik tombol create untuk bikin Document baru</p>
+            </field>
+        </record>
+
+		<menuitem id="document_0"
+        name="Document Bea Cukai"
+        sequence="20"/>
+
+        <menuitem id="document_1"
+        name="Document Bea Cukai"
+        parent="document_0"
+        sequence="20"/>
+
+        <menuitem id="menu_document_bea_cukai"
+        name="Dashboard"
+        parent="document_0"
+        action="action_document_list"
+        sequence="20"/>
+
+	</data>
+</odoo>

@@ -15,10 +15,12 @@
         "base",
         "hr",
         "hr_contract",
+        "sale",
+        "purchase",
+        "stock",
     ],
 
     "data": [
-        # "security/ir.model.access.csv",
         "views/print_pemasukan_barang.xml",
         "views/print_pengeluaran_barang.xml",
         "views/print_posisi_wip.xml",
@@ -26,6 +28,9 @@
         "views/print_tanggungjawab_mutasi_bahan.xml",
         "views/print_tanggungjawab_mutasi_mesin.xml",
         "views/print_tanggungjawab_barang_reject.xml",
+        "views/menu.xml",
+        "views/template.xml",
+        "security/ir.model.access.csv",
     ],
 
     "demo": [
